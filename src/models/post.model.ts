@@ -3,7 +3,8 @@ import {
   belongsTo,
   hasMany,
   model,
-  property, referencesMany} from '@loopback/repository';
+  property,
+} from '@loopback/repository';
 import {Category} from './category.model';
 import {Comment} from './comment.model';
 import {User} from './user.model';
@@ -57,7 +58,6 @@ export class Post extends Entity {
   @belongsTo(() => User)
   userId: string;
 
-  @referencesMany(() => User)
   likedBy: string[];
   // Define well-known properties here
 
