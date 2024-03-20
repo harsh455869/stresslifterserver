@@ -58,7 +58,6 @@ export class Post extends Entity {
   @belongsTo(() => User)
   userId: string;
 
-  likedBy: string[];
   // Define well-known properties here
 
   // Indexer property to allow additional data

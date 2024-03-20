@@ -27,9 +27,9 @@ export class User extends Entity {
   userProfilePic?: string;
 
   @property({
-    type: 'object',
+    type: 'string',
   })
-  gender?: object;
+  gender?: string;
 
   @property({
     type: 'string',
