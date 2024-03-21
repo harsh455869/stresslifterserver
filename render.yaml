@@ -1,0 +1,21 @@
+services:
+  - name: my-loopback-app
+    type: web
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    env: node
+    port: 3000
+
+  - name: my-socketio-app
+    type: web
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    env: node
+    port: 3001
+
+routes:
+  - path: /api/*
+    service: my-loopback-app
+
+  - path: /socket.io/*
+    service: my-socketio-app

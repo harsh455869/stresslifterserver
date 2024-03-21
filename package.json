@@ -55,8 +55,10 @@
     "@loopback/rest": "^13.1.5",
     "@loopback/rest-explorer": "^6.1.5",
     "@loopback/service-proxy": "^6.1.5",
+    "express": "^4.19.1",
     "jsonwebtoken": "^9.0.2",
     "loopback-connector-mongodb": "^5.2.3",
+    "socket.io": "^4.7.5",
     "tslib": "^2.0.0"
   },
   "devDependencies": {

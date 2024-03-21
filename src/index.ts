@@ -1,9 +1,26 @@
+import express from 'express';
+import {createServer} from 'http';
+import {Server} from 'socket.io';
 import {ApplicationConfig, MindspotApplication} from './application';
-
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new MindspotApplication(options);
+  const ser = express();
+  const server = createServer(ser);
+  const io = new Server(server);
+  io.on('connection', socket => {
+    console.log('a user connected');
+    socket.on('send-message', data => {
+      console.log(data);
+    });
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+  });
+  server.listen(3001, () => {
+    console.log('server running at http://localhost:3001');
+  });
   await app.boot();
   await app.start();
 
